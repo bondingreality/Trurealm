@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22538b253c09108429a95f2b12ecc6a2, type: 3}
+  m_Name: RarityLevels
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  title: Rarity Levels
+  rarity: 2
+  stackSize: 0
+  gameInfoObjects: 1
