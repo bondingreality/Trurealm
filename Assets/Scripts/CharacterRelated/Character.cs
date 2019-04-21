@@ -145,7 +145,7 @@ public abstract class Character : MonoBehaviour
     /// <summary>
     /// Makes sure that the right animation layer is playing
     /// </summary>
-    public void HandleLayers()
+    public virtual void HandleLayers()
     {
         if (IsAlive)
         {
@@ -177,7 +177,7 @@ public abstract class Character : MonoBehaviour
     /// <summary>
     /// Activates an animation layer based on a string
     /// </summary>
-    public void ActivateLayer(string layerName)
+    public virtual void ActivateLayer(string layerName)
     {
         for (int i = 0; i < MyAnimator.layerCount; i++)
         {

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46088fbe4fbe1d94eb092ea808dc585e, type: 3}
+  m_Name: Helmet
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 16aa98c9bd9cebe4f92899149d81d9f1, type: 3}
+  title: Helmet
+  rarity: 2
+  stackSize: 0
+  armorType: 2
+  armorSlot: 2
+  IsUseable: 0
+  statEnhancements:
+  - type: 2
+    baseValue: 1
+    statModifiers:
+    - value: 0.1
+      property: 2
+      type: 4
+      effect: 2
+      order: 0
+  - type: 4
+    baseValue: 1
+    statModifiers:
+    - value: 10
+      property: 4
+      type: 2
+      effect: 2
+      order: 0
+  - type: 32
+    baseValue: 1
+    statModifiers:
+    - value: 2
+      property: 2
+      type: 2
+      effect: 8
+      order: 0
+  animationClips:
+  - {fileID: 7400000, guid: 4231c094b5b37db4fb209944c3967541, type: 2}
+  - {fileID: 7400000, guid: 68f659fe04c19454e8dbbf2b4e222e46, type: 2}
+  - {fileID: 7400000, guid: 8d8ece3888dc47d4ca78a2298354f56c, type: 2}
+  - {fileID: 7400000, guid: 97de1b31767e09a41a03c8f01d52ed9d, type: 2}
+  - {fileID: 7400000, guid: 185ce074894b7ba4faeecccc65a4f236, type: 2}
+  - {fileID: 7400000, guid: 0733fac29fdb97e408c248da82e4b677, type: 2}
+  - {fileID: 7400000, guid: 1efaf6e28d9972e4e8e89369f5c75251, type: 2}
+  - {fileID: 7400000, guid: e89f122a6246da2488bd121bd5b817a0, type: 2}
+  - {fileID: 7400000, guid: 775469a0a5dbbda49858c151a8496e21, type: 2}
+  - {fileID: 7400000, guid: 4f312eafd6ff83148b98c865dccba96f, type: 2}
+  - {fileID: 7400000, guid: d18dbb77c725f9247a2bef7fac988a11, type: 2}
+  - {fileID: 7400000, guid: b71bcfaa6fb22aa44a99459bf285fc1f, type: 2}

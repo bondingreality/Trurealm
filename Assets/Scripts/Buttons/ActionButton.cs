@@ -145,6 +145,10 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         {
             UIManager.MyInstance.UpdateStackSize(this);
         }
+        else if (MyUseable is Spell)
+        {
+            UIManager.MyInstance.ClearStackCount(this);
+        }
     }
 
     public void UpdateItemCount(Item item)

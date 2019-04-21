@@ -29,26 +29,21 @@ public class SpellBook : MonoBehaviour
     private Text castingTime;
     [SerializeField]
     private CanvasGroup castingBar;
+    [SerializeField]
+    private CanvasGroup canvasGroup;
 
 
     [SerializeField]
     private Spell[] spells;
 
+    public void OpenClose()
+    {
+        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
+        canvasGroup.blocksRaycasts = canvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+    }
 
     private Coroutine spellRoutine;
     private Coroutine fadeRoutine;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public Spell CastSpell(string spellName)
     {

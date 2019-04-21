@@ -65,6 +65,7 @@
     <Compile Include="Assets\Behaviours\SpellBehaviour.cs" />
     <Compile Include="Assets\Scripts\Buttons\ActionButton.cs" />
     <Compile Include="Assets\Scripts\Buttons\BagButton.cs" />
+    <Compile Include="Assets\Scripts\Buttons\CharButton.cs" />
     <Compile Include="Assets\Scripts\Buttons\IUseable.cs" />
     <Compile Include="Assets\Scripts\Buttons\LootButton.cs" />
     <Compile Include="Assets\Scripts\Buttons\SpellButton.cs" />
@@ -75,11 +76,13 @@
     <Compile Include="Assets\Scripts\CharacterRelated\CStatModifier.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\CVital.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\Enemy.cs" />
+    <Compile Include="Assets\Scripts\CharacterRelated\GearSocket.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\LayerSorter.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\NPC.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\Player.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\Range.cs" />
     <Compile Include="Assets\Scripts\CharacterRelated\Stat.cs" />
+    <Compile Include="Assets\Scripts\CharacterRelated\WeaponSocket.cs" />
     <Compile Include="Assets\Scripts\Common\Common.cs" />
     <Compile Include="Assets\Scripts\Common\QualityLevelBase.cs" />
     <Compile Include="Assets\Scripts\Common\RarityLevelBase.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\Scripts\UIReleated\IClickable.cs" />
     <Compile Include="Assets\Scripts\UIReleated\IDescribable.cs" />
     <Compile Include="Assets\Scripts\UIReleated\IMoveable.cs" />
+    <Compile Include="Assets\Scripts\UIReleated\KeyBindPanel.cs" />
     <Compile Include="Assets\Scripts\UIReleated\LootWindow.cs" />
     <Compile Include="Assets\Scripts\UIReleated\ObservableStack.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

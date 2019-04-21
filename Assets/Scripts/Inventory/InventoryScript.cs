@@ -110,8 +110,15 @@ public class InventoryScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Semicolon))
         {
-            Armor helmet = (Armor)Instantiate(items[6]);
-            AddItem(helmet);
+            AddItem((Armor)Instantiate(items[6]));
+            AddItem((Armor)Instantiate(items[10]));
+            AddItem((Armor)Instantiate(items[11]));
+            AddItem((Armor)Instantiate(items[12]));
+            AddItem((Armor)Instantiate(items[13]));
+            AddItem((Armor)Instantiate(items[14]));
+            AddItem((Armor)Instantiate(items[15]));
+            AddItem((Armor)Instantiate(items[16]));
+            AddItem((Armor)Instantiate(items[17]));
         }
         if (Input.GetKeyDown(KeyCode.Quote))
         {

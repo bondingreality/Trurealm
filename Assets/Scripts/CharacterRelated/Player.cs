@@ -40,6 +40,9 @@ public class Player : Character
     
     private int exitIndex = 2;
 
+    [SerializeField]
+    private GearSocket[] gearSockets;
+
     protected override void Start()
     {
         mana.Initialize(initMana, initMana);;
@@ -143,6 +146,11 @@ public class Player : Character
 
         MyAnimator.SetBool("attack", IsAttacking); //Starts the attack animation
 
+        foreach(GearSocket g in gearSockets)
+        {
+            g.MyAnimator.SetBool("attack", IsAttacking);
+        }
+
         yield return new WaitForSeconds(mySpell.MyCastTime); //This is a hardcoded cast time, for debugging
 
         if (currentTarget != null && InLineOfSight(currentTarget))
@@ -189,9 +197,36 @@ public class Player : Character
 
         MyAnimator.SetBool("attack", IsAttacking); //Stops the attack animation
 
+        foreach (GearSocket g in gearSockets)
+        {
+            g.MyAnimator.SetBool("attack", IsAttacking);
+        }
+
         if (attackRoutine != null) //Checks if we have a reference to an co routine
         {
             StopCoroutine(attackRoutine);
+        }
+    }
+
+    public override void HandleLayers()
+    {
+        base.HandleLayers();
+
+        if(IsMoving)
+        {
+            foreach(GearSocket g in gearSockets)
+            {
+                g.SetXandY(Direction.x, Direction.y);
+            }
+        }
+    }
+    public override void ActivateLayer(string layerName)
+    {
+        base.ActivateLayer(layerName);
+
+        foreach(GearSocket g in gearSockets)
+        {
+            g.ActivateLayer(layerName);
         }
     }
 }

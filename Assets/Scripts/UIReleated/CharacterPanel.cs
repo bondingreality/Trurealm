@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterPanel : MonoBehaviour
@@ -16,12 +17,38 @@ public class CharacterPanel : MonoBehaviour
             return instance;
         }
     }
+
+
     [SerializeField]
     private CanvasGroup canvasGroup;
-    
+    [SerializeField]
+    private List<CharButton> charButtons;
+
+    public CharButton MySelectedButton { get; set; }
+
+    public CanvasGroup MyCanvasGroup
+    {
+        get
+        {
+            return canvasGroup;
+        }
+    }
+
     public void OpenClose()
     {
-        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
-        canvasGroup.blocksRaycasts = canvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+        MyCanvasGroup.alpha = MyCanvasGroup.alpha > 0 ? 0 : 1;
+        MyCanvasGroup.blocksRaycasts = MyCanvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+    }
+
+    public void EquipArmor(Armor armor)
+    {
+        var myButtons = charButtons.Where(T => T.MyArmorSlot == armor.MyArmorSlot);
+        if (myButtons.Count() == 0)
+            return;
+
+        foreach (var btn in myButtons)
+        {
+            btn.EquipArmor(armor);
+        }
     }
 }

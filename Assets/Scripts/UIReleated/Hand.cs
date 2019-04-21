@@ -37,7 +37,10 @@ public class Hand : MonoBehaviour
     void Update()
     {
         icon.transform.position = Input.mousePosition + offset;
-        DeleteItem();
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && MyMoveable != null)
+        {
+            DeleteItem();
+        }
     }
 
     public void TakeMoveable(IMoveable moveable)
@@ -58,18 +61,16 @@ public class Hand : MonoBehaviour
     {
         MyMoveable = null;
         icon.color = new Color(0, 0, 0, 0);
+        InventoryScript.MyInstance.FromSlot = null;
     }
 
-    private void DeleteItem()
+    public void DeleteItem()
     {
-        if(Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && MyMoveable != null)
+        if (MyMoveable is Item && InventoryScript.MyInstance.FromSlot != null)
         {
-            if(MyMoveable is Item && InventoryScript.MyInstance.FromSlot != null)
-            {
-                (MyMoveable as Item).MySlotScript.Clear();
-            }
-            Drop();
-            InventoryScript.MyInstance.FromSlot = null;
+            (MyMoveable as Item).MySlotScript.Clear();
         }
+        Drop();
+        InventoryScript.MyInstance.FromSlot = null;
     }
 }

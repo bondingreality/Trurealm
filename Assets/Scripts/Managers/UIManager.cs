@@ -39,7 +39,11 @@ public class UIManager : MonoBehaviour
     private CanvasGroup spellBook;
     [SerializeField]
     private GameObject toolTip;
+    
     private Text toolTipText;
+
+    [SerializeField]
+    private RectTransform toolTipRect;
 
     private GameObject[] keybindButtons;
 
@@ -84,7 +88,11 @@ public class UIManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CharacterPanel.MyInstance.OpenClose();
+            characterPanel.OpenClose();
+            if (characterPanel.MyCanvasGroup.blocksRaycasts)
+                MenuUp.Add(characterPanel.MyCanvasGroup);
+            else
+                MenuUp.Remove(characterPanel.MyCanvasGroup);
         }
     } 
 
@@ -138,14 +146,20 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            clickable.MyIcon.color = Color.white;
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+            ClearStackCount(clickable);
         }
+
         if(clickable.MyCount == 0)
         {
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public void ClearStackCount(IClickable clickable)
+    {
+        clickable.MyIcon.color = Color.white;
+        clickable.MyStackText.color = new Color(0, 0, 0, 0);
     }
 
     public void ShowToolTip(Vector3 position, IDescribable description)
@@ -154,8 +168,20 @@ public class UIManager : MonoBehaviour
         toolTip.transform.position = position;
         toolTipText.text = description.GetDescription();
     }
+    public void ShowToolTip(Vector2 pivot, Vector3 position, IDescribable description)
+    {
+        toolTipRect.pivot = pivot;
+        toolTip.SetActive(true);
+        toolTip.transform.position = position;
+        toolTipText.text = description.GetDescription();
+    }
     public void HideToolTip()
     {
         toolTip.SetActive(false);
+    }
+
+    public void RefreshToolTip(IDescribable description)
+    {
+        toolTipText.text = description.GetDescription();
     }
 }
