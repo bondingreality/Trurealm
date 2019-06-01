@@ -8,18 +8,6 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
     [SerializeField]
     private Sprite icon;
-
-    [SerializeField]
-    private string title;
-
-    [SerializeField]
-    private RarityLevel rarity;
-
-    [SerializeField]
-    private int stackSize;
-
-    private SlotScript slotScript;
-
     public Sprite MyIcon
     {
         get
@@ -28,6 +16,21 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         }
     }
 
+    [SerializeField]
+    private string title;
+
+    [SerializeField]
+    private RarityLevel rarity;
+    public RarityLevel MyRarity
+    {
+        get
+        {
+            return rarity;
+        }
+    }
+
+    [SerializeField]
+    private int stackSize;
     public int MyStackSize
     {
         get
@@ -36,6 +39,7 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         }
     }
 
+    private SlotScript slotScript;
     public SlotScript MySlotScript
     {
         get
@@ -49,14 +53,20 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         }
     }
 
-    public RarityLevel MyRarity
+
+    private CharButton charButton;
+    public CharButton MyCharButton
     {
         get
         {
-            return rarity;
+            return charButton;
+        }
+        set
+        {
+            MySlotScript = null;
+            charButton = value;
         }
     }
-
 
     public string GetTitle()
     {

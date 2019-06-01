@@ -28,11 +28,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image targetPortrait;
 
-    [SerializeField]
-    private CharacterPanel characterPanel;
 
     private Stat healthStat;
 
+    [SerializeField]
+    private CanvasGroup characterPanel;
     [SerializeField]
     private CanvasGroup keybindMenu;
     [SerializeField]
@@ -67,20 +67,10 @@ public class UIManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             ShowCanvasGroup(keybindMenu);
-            if (keybindMenu.blocksRaycasts)
-                MenuUp.Add(keybindMenu);
-            else
-                MenuUp.Remove(keybindMenu);
-            PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
             ShowCanvasGroup(spellBook);
-            if (spellBook.blocksRaycasts)
-                MenuUp.Add(spellBook);
-            else
-                MenuUp.Remove(spellBook);
-            PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -88,13 +78,9 @@ public class UIManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            characterPanel.OpenClose();
-            if (characterPanel.MyCanvasGroup.blocksRaycasts)
-                MenuUp.Add(characterPanel.MyCanvasGroup);
-            else
-                MenuUp.Remove(characterPanel.MyCanvasGroup);
+            ShowCanvasGroup(characterPanel);
         }
-    } 
+    }
 
     public void UpdateKeyText(string key, KeyCode code)
     {
@@ -124,6 +110,11 @@ public class UIManager : MonoBehaviour
     {
         canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
         canvasGroup.blocksRaycasts = canvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+        if (canvasGroup.blocksRaycasts)
+            MenuUp.Add(canvasGroup);
+        else
+            MenuUp.Remove(canvasGroup);
+        PauseGame();
     }
 
     public void PauseGame()

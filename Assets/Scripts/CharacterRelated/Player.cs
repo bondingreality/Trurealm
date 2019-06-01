@@ -40,6 +40,8 @@ public class Player : Character
     
     private int exitIndex = 2;
 
+    private IInteractable interactable;
+
     [SerializeField]
     private GearSocket[] gearSockets;
 
@@ -227,6 +229,33 @@ public class Player : Character
         foreach(GearSocket g in gearSockets)
         {
             g.ActivateLayer(layerName);
+        }
+    }
+
+    public void Interact()
+    {
+        if(interactable != null)
+        {
+            interactable.Interact();
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy" || collision.tag == "Interactable")
+        {
+            interactable = collision.GetComponent<IInteractable>();
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "Interactable")
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract();
+                interactable = null;
+            }
         }
     }
 }

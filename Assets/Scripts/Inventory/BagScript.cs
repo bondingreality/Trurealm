@@ -86,4 +86,12 @@ public class BagScript : MonoBehaviour
 
         canvasGroup.blocksRaycasts = IsOpen;
     }
+
+    public void Clear()
+    {
+        foreach(var slot in slots)
+        {
+            slot.Clear();
+        }
+    }
 }

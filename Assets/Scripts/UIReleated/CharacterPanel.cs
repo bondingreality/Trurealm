@@ -36,8 +36,7 @@ public class CharacterPanel : MonoBehaviour
 
     public void OpenClose()
     {
-        MyCanvasGroup.alpha = MyCanvasGroup.alpha > 0 ? 0 : 1;
-        MyCanvasGroup.blocksRaycasts = MyCanvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+        UIManager.MyInstance.ShowCanvasGroup(MyCanvasGroup);
     }
 
     public void EquipArmor(Armor armor)

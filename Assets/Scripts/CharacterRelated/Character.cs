@@ -203,6 +203,7 @@ public abstract class Character : MonoBehaviour
             Debug.Log("Enemy Died");
             Direction = Vector2.zero;
             myRigidbody.velocity = direction;
+            myRigidbody.bodyType = RigidbodyType2D.Static;
             MyAnimator.SetTrigger("Dead");
         }
     }

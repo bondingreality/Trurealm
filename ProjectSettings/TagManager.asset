@@ -9,6 +9,7 @@ TagManager:
   - Terran
   - Obstacle
   - Keybind
+  - Interactable
   layers:
   - Default
   - TransparentFX

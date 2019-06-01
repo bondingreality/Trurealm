@@ -38,8 +38,7 @@ public class SpellBook : MonoBehaviour
 
     public void OpenClose()
     {
-        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
-        canvasGroup.blocksRaycasts = canvasGroup.alpha > 0 ? true : false; //Block raycast based on current alpha
+        UIManager.MyInstance.ShowCanvasGroup(canvasGroup);
     }
 
     private Coroutine spellRoutine;
